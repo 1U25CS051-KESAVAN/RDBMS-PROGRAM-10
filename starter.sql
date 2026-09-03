@@ -1,7 +1,3 @@
--- Course and Enrollment JOIN Assignment
-
--- STEP 1: Create Course table
-
 CREATE TABLE Course (
     CourseID INT PRIMARY KEY,
     CourseName VARCHAR(100),
@@ -9,7 +5,7 @@ CREATE TABLE Course (
 );
 
 
--- STEP 2: Create Enrollment table
+desc Course;
 
 CREATE TABLE Enrollment (
     EnrollmentID INT PRIMARY KEY,
@@ -18,7 +14,7 @@ CREATE TABLE Enrollment (
 );
 
 
--- STEP 3: Insert Course records
+desc Enrollment;
 
 INSERT INTO Course (CourseID, CourseName, Credits)
 VALUES
@@ -27,7 +23,7 @@ VALUES
 (203, 'Mathematics', 4);
 
 
--- STEP 4: Insert Enrollment records
+
 
 INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID)
 VALUES
@@ -36,12 +32,5 @@ VALUES
 (3, 1002, 203),
 (4, 1003, 201);
 
-
--- STEP 5: Perform LEFT JOIN
--- Display Course information with Enrollment information.
--- Write your LEFT JOIN query below:
-
-
--- STEP 6: Perform RIGHT JOIN
--- Display Course information with Enrollment information.
--- Write your RIGHT JOIN query below:
+select Course.CourseName,Course.Credits,Enrollment.EnrollmentID,Enrollment.StudentID from Course left join Enrollment on Course.CourseID=Enrollment.CourseID;
+select Course.CourseName,Course.Credits,Enrollment.EnrollmentID,Enrollment.StudentID from Course right join Enrollment on Course.CourseID=Enrollment.CourseID;
